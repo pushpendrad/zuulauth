@@ -1,0 +1,19 @@
+server:
+  port: 8282
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.ocr-eureka.credentials.uri:http://172.27.59.120:8761/eureka/}
+  instance:
+    hostname: ${vcap.application.uris[0]:navneejo}
+    metadataMap:
+      instanceId: Races_navneejo
+---
+spring:
+  profiles: cloud
+eureka:
+  instance:
+    nonSecurePort: 80
+
+    
+    

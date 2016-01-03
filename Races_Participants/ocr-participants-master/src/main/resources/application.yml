@@ -1,0 +1,16 @@
+server:
+  port: 8181
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.ocr-eureka.credentials.uri:http://172.27.59.120:8761/eureka/}
+  instance:
+    hostname: ${vcap.application.uris[0]:Rupalime}
+    metadataMap:
+      instanceId: participants_Rupalime
+---
+spring:
+  profiles: cloud
+eureka:
+  instance:
+    nonSecurePort: 80
